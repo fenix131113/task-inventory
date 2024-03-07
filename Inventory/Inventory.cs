@@ -2,12 +2,13 @@
 
 public class Inventory
 {
-    private List<Item> _items;
+    // Добавил инициализацию списка
+    private List<Item> _items = new();
 
     private int _maxWeight;
     private int _weight;
 
-    public int MaxWeight => maxWeight;
+    public int MaxWeight => _maxWeight;
 
     public int Weight => _weight;
 
@@ -15,8 +16,8 @@ public class Inventory
     {
         _maxWeight = maxWeight;
     }
-    
-    public bool AddItem(Item item int count)
+
+    public bool AddItem(Item item, int count)
     {
         if (_weight + item.Weight * count > _maxWeight)
         {
@@ -35,20 +36,23 @@ public class Inventory
 
     public bool RemoveItem(Item item)
     {
+        // Добавил логику снятия веса при удалении предмета
+        _weight -= item.Weight;
         return _items.Remove(item);
     }
 
     public int CountItem(Item countItem)
     {
         int c = 0;
-        for (var i = 0; i <= _items.Count; i++)
+        // Убрал =
+
+        // Добавил логику для подсчёта нужного предмета, а не всех
+        for (int i = 0; i < _items.Count; i++)
         {
-            var item = _items[i];
-            c++;
+            if (_items[i].Name == countItem.Name)
+                c++;
         }
 
-        return c
+        return c;
     }
-    
-    
 }

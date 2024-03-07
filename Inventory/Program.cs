@@ -7,7 +7,8 @@ public static class Program
         Inventory inventory = new Inventory(20);
         Item sword = new Item("Sword", 1);
         Item shield = new Item("Shield", 2);
-        Item healthPoison = new Item("Sword", 3);
+        //исправил имя на нужное (Poison -> potion | Sword -> Health Potion)
+        Item healthPotion = new Item("Health Potion", 3);
 
         inventory.AddItem(sword, 2);
         Console.WriteLine(inventory.Weight);
@@ -15,9 +16,10 @@ public static class Program
         inventory.AddItem(shield, 4);
         Console.WriteLine(inventory.Weight);
         
-        inventory.AddItem(healthPoison, -3);
+        // вещь с минусовым грузом (убрал минус)
+        inventory.AddItem(healthPotion, 3);
         Console.WriteLine(inventory.Weight);
-
+        
         inventory.RemoveItem(shield);
         Console.WriteLine(inventory.Weight);
 
